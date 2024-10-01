@@ -1,0 +1,215 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="container">
+        <div class="nav_bar">
+            <div class="heading">
+
+                <a href="#"><span class="s1">Gada</span><span class="s2">Elec.</span></a>
+            </div>
+            <div class="search">
+                <form action="" method="get">
+                    <input type="text" name="title" class="i1">
+                    <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+                    <input type="submit" value='search....' class="i2">
+                </form>
+            </div>
+            <div class="tags">
+                <a href=""><span class="s3">Explore</span></a>
+                <a href=""><button type="submit" class="b1">login</button></a>
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+                <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+
+            </div>
+        </div>
+
+        <div class="dialog">
+            <h1>Experience Electronics <br> Redefined: Unleash <br> Innovation</h1>
+            <br>
+            <p>Discover the Future of Electronics: Unleash Innovation, Immerse <br> in Unparalleled Quality. Experience
+                our cutting-edge technology <br> and elevate your everyday with Gada Electronics. Explore the <br>
+                extraordinary today.</p><br>
+            <a href=""><button type="submit" class="b2">Shop Now</button></a>
+        </div>
+        <div class="image">
+            <img src="{% static  'image/pic one.png' %}" alt="">
+        </div>
+        <!--------------------------------------------------------------------------------------------------------------------------------------->
+
+        <div class="categories">
+            <h2 class="cate">
+                Categories</h2>
+            <div class="product" style="display: flex; overflow: hidden;">
+               {%  for i in data1 %}
+                <div class="product_image" style="overflow: hidden; margin-top: 20px;">
+                    <img src="/media/{{i.image}}" alt="" class="pro_img" style="width: 80%; height: '30%'; overflow: hidden; margin-top: 1px;">
+                    <div class="pro_hea">
+                        <h4>{{ i.heading }}</h4>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <h2 class="cate">
+                Featured Products</h2>
+            <div class="product_desc"  style="display: flex;" >
+                {% for i in data2 %}
+                <div class="product_desc_box">
+                    <img src="/media/{{i.imagee}}" alt="" class="pro_img_desc">
+                    <br>
+                    <hr>
+                    <h3 class="name" style="font-size: 25px; width: 100%; font-weight: 100;"><b> Name:</b> {{ i.name }}</h3>
+                    <h3 class="desc" style="font-size: 25px; width: 100%; font-weight: 100;"><b>Description:</b>{{ i.desc }} </h3>
+                    <h3 class="price" style="font-size: 25px; width: 100%; font-weight: 100;"><b>Price:</b>{{ i.price }} </h3>
+                    <br>
+                    <button type="submit" class="b10">Add to Card</button>
+                </div>
+                {% endfor %}
+            </div>
+            <h2 class="cate">Product Description</h2>
+            <div class="product_table">
+                <table>
+                    <thead>
+                      
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Configuration</th>
+                            <th>Release Date </th>
+                            <th>Price</th>
+                            <th>Availability</th>
+                        </tr>
+                    </thead>
+                    {% for i in data3 %}
+                    <tr>
+                        <td>{{ i.pro_name }}</td>
+                        <td>{{ i.pro_con}}</td>
+                        <td>{{ i.pro_rel }}</td>
+                        <td>{{i.pro_price}}</td>
+                        <td>{{i.pro_avail}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+
+            <div class="footer">
+                <div class="grid-item1">
+                    <br><br>
+                    <img src="{% static 'image/logo.png' %}" class="grid_image">
+                    <br><br>
+                    <a href="#"><span>136 Street Suite 456 City, State</span></a><br>
+                    <a href="#"><span>12345,UK</span></a><br><br>
+                    <a href="#"><span>info@electronicshop.com</span></a><br><br>
+                    <a href="#"><span>1-800-123 -4567</span></a><br>
+                    <br>
+                    <a href="#" class="ico"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="ico"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="ico"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="ico"><i class="fa-solid fa-b"></i></a>
+    
+                </div>
+                <div class="grid-item2">
+                    <br>
+                    <br>
+                    <ul><a href="#">
+                            <li class="list_head">HELP</li><br>
+                        </a>
+    
+                        <a href="#">
+                            <li></li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">FAQs</li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">Shipping</li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">Returns</li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">Size Guides</li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">Materials & Care</li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">Contant Us</li>
+                        </a>
+    
+                    </ul>
+                </div>
+                <div class="grid-item3">
+                    <br>
+                    <br>
+                    <ul><a href="#">
+                            <li class="list_head">ABOUT US</li><br>
+                        </a>
+                        <a href="#">
+                            <li> </li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">About Us</li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">THE Rewards Stack</li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">Sustainability</li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">Careers</li>
+                        </a><br>
+                        <a href="#">
+                            <li class="list">Blog</li>
+                        </a><br>
+    
+                    </ul>
+                </div>
+                <div class="grid-item4">
+                    <br>
+                    <br>
+                    <h3>SING UP FOR 10% OFF</h3>
+                    <br><br>
+                    <p class="paragraph">Be the first to know about new releases, <br>exclusive promotions, events and
+                        styling tips!</p><br>
+                    <input type="email" value="Email address.....">
+                    <a href="#"> <button type="submit" class="grid_button">SUBSCRIBE</button></a>
+    
+                    <br><br>
+                    <a href="#"> <button type="button" class="top">TOP</button></a>
+                    <br>
+    
+                    <img src="{% static 'image/payment.webp'%}" class="payment">
+    
+    
+                </div>
+            </div>
+    
+    
+
+
+        </div>
+
+    </div>
+
+    </h2>
+
+    </div>
+
+    </div>
+</body>
+
+</html>
